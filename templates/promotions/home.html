@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% load promotion_tags %}
+{% load i18n %}
+
+{% block body_class %}home-page{% endblock body_class %}
+
+{% block header %}
+{% endblock %}
+
+{% block page_promotions %}
+<div id="homepage-carousel" class="flexslider hidden-phone">
+    <ul class="slides">
+        <li>
+            <a href="#"><img src="{% static "demo/img/carousel/homepage-banners-03.jpg" %}" alt="{{ shop_name }} - {{ shop_tagline }}"  width="140" height="108" /></a>
+        </li>
+        <li>
+            <a href="#"><img src="{% static "demo/img/carousel/homepage-banners-04.jpg" %}" alt="{{ shop_name }} - {{ shop_tagline }}"  width="140" height="108" /></a>
+        </li>
+    </ul>
+</div>
+{% endblock %}
+
+{% block content %}
+    
+    {% comment %}
+        Markup on this page is somewhat temporary. Class wrappers with
+        'widget' are probably to be used as fancypage widgets and will 
+        be removed from here.
+        'homepage-carousel' and structural classes could also be included in that statement.
+    {% endcomment %}
+    
+    <div class="row-fluid">
+        <div class="span8">
+            <div class="row-fluid">
+                <div class="span6">
+                    <div class="promotion-block widget-image-link">
+                        <a href="#">
+                            <img src="{% static "demo/img/carousel/banner-07.jpg" %}" alt="{{ shop_name }} - {{ shop_tagline }}"  >
+                            <h3>{% trans "Для мужчин" %} <i class="icon-arrow-right hidden-phone"></i></h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="span6">
+                    <div class="promotion-block widget-image-link">
+                        <a href="#">
+                            <img src="{% static "demo/img/carousel/banner-06.jpg" %}" alt="{{ shop_name }} - {{ shop_tagline }}"  >
+                            <h3>{% trans "Для женщин" %} <i class="icon-arrow-right hidden-phone"></i></h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="promotion-block widget-image-link large">
+                <a href="#">
+                    <img src="{% static "demo/img/carousel/banner-08.jpg" %}" alt="{{ shop_name }} - {{ shop_tagline }}"  >
+                    <h3>{% trans "Наборы и аксессуары" %}<small>{% trans "предложения и скидки*" %}</small> <i class="icon-arrow-right hidden-phone"></i></h3>
+                </a>
+            </div>
+
+
+            {% for promotion in promotions_page %}
+                {% render_promotion promotion %}
+            {% endfor %}
+        </div>
+        <div class="span4">
+            <div class="promotion-block widget-delivery">
+                <h3 class="free-delivery"><i class="icon-earth"></i><span>{% trans "Доставка по всему миру" %}</span></h3>
+                <p>{% trans "Доставка почтой в любой уголок планеты." %}</p>
+                <a href="#" class="btn">{% trans "подробности" %}</a>
+            </div>
+
+            <div class="promotion-block widget-shipping">
+                <h3 class="free-delivery"><i class="icon-truck"></i> <span><span>{% trans "Бесплатная доставка" %}</span><br/> <strong>{% trans "Для заказа от 3000 руб" %}</strong></span></h3>
+                <p>{% trans "Любой заказ от 3000 руб доставим бесплатно*." %}</p>
+                <a href="/delivery" class="btn">{% trans "подробности" %}</a>
+            </div>
+
+            {% for promotion in promotions_right %}
+                {% render_promotion promotion %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+                    
