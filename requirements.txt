@@ -1,0 +1,34 @@
+# Development
+django-debug-toolbar>=1.2.1,<1.3
+django-debug-toolbar-template-timings==0.6.1
+django-extensions>=1.3.3,<1.4.0
+Werkzeug>=0.9.4,<0.10
+
+# Sandbox
+Whoosh>=2.5
+requests==2.1
+uWSGI==1.9.21.1
+
+
+
+
+
+# Country data
+pycountry>=1.8,<2.0
+
+# Oscar extensions
+django-oscar
+django-oscar-stores
+django-oscar-paypal
+django-oscar-datacash
+
+# We need PostGIS as the stores extension uses GeoDjango.
+psycopg2
+
+
+
+
+lxml
+cssselect
+BeautifulSoup
+raven
